@@ -1,8 +1,5 @@
 import streamlit as st
-import pandas as pd
+from streamlit_player import st_player
 
-st.write("Just a table:")
-st.write(pd.DataFrame({
-    'first column': [1, 2, 3, 4],
-    'second column': [10, 20, 30, 40]
-}))
+# Embed a youtube video
+st_player("https://youtu.be/CmSKVW1v0xM")
