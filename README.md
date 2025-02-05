@@ -3,6 +3,19 @@
 
 Link to Hackathon: https://next2025challenge.devpost.com/
 
+--------------------------------------
+# Prerequistes
+
+You must have Node installed on your computer, in order to run this,
+Please follow instructions in the provided URL,
+
+`https://nodejs.org/en/download`
+
+Please make sure `node` is in your environment path before running, as it is required in the upload stage.
+
+
+--------------------------------------
+# Installation
 
 1. **Create a virtual environment:**
     ```sh
@@ -17,21 +30,31 @@ Link to Hackathon: https://next2025challenge.devpost.com/
         ```
     - On Windows:
         ```sh
-        .\venv\Scripts\activate
+        .\.venv\Scripts\activate
         ```
 
 3. **Upgrade `pip`:**
     ```sh
     pip install --upgrade pip
     ```
+   - On Windows:   
+   ```sh
+   python -m pip install --upgrade pip
+   ```
 
-4. **Intall requirements:**
+4. **Install python dependencies:**
     ```sh
-    pip install -r app/requirements.txt
+    pip install -r requirements.txt
     ```
+   
+5. **Install node packages:**
+   ```sh
+   cd tiktok_uploader/tiktok-signature/
+   npm i
+   ```
 
-5. **Run locally:**\
+6. **Run locally:**
     ```sh
-    streamlit run app/app.py
+    streamlit run app.py
     ```
  
