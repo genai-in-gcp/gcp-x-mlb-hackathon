@@ -13,33 +13,21 @@ WORKDIR /app
 COPY . /app
 
 # Install nodejs
-RUN apt-get update && apt-get install -y wget build-essential && apt-get clean
-RUN mkdir -p /node
-RUN wget https://nodejs.org/dist/v20.13.1/node-v20.13.1-linux-x64.tar.xz \
-    && mkdir -p /node && tar -xf node-v20.13.1-linux-x64.tar.xz -C /node \
-    && chmod +x -R /node/node-v20.13.1-linux-x64
+RUN apt-get update \
+ && apt-get install -y wget build-essential && apt-get clean \
+ && wget https://nodejs.org/dist/v20.13.1/node-v20.13.1-linux-x64.tar.xz \
+ && mkdir -p /node && tar -xf node-v20.13.1-linux-x64.tar.xz -C /node \
+ && chmod +x -R /node/node-v20.13.1-linux-x64 \
+ && rm node-v20.13.1-linux-x64.tar.xz
 ENV PATH="/node/node-v20.13.1-linux-x64/bin:${PATH}"
-RUN rm node-v20.13.1-linux-x64.tar.xz
 
 # Install chrome driver
-RUN apt-get update \
- && apt-get install -y wget \
- && wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
- && apt-get install -y ./google-chrome-stable_current_amd64.deb
-
-RUN rm google-chrome-stable_current_amd64.deb
-
-## Install nodejs (and git)
-#RUN apt-get install -y git-core curl build-essential openssl libssl-dev \
-#noe && git clone https://github.com/nodejs/node.git \
-# && cd node \
-# && ./configure \
-# && make \
-# && sudo make install
+RUN wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
+ && apt-get install --no-install-recommends -y ./google-chrome-stable_current_amd64.deb && apt-get clean \
+ && rm google-chrome-stable_current_amd64.deb
 
 # Install git and python3
-RUN apt-get update \
- && apt-get install -y git-core python3 python3-pip
+RUN apt-get install --no-install-recommends -y git-core python3 python3-pip && apt-get clean
 
 # Install python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
