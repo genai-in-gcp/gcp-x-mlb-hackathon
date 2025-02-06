@@ -12,7 +12,7 @@ st_player("https://youtu.be/CmSKVW1v0xM")
 if st.button("Upload Video to TikTok"):
     videos = [
         {
-            'path': 'test_video.mp4',
+            'path': 'pre-processed.mp4',
             'description': 'Bla bla bla'
         }
     ]

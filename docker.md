@@ -1,3 +1,5 @@
+### Docker image
+
 Build docker image:
 
 ```sh
@@ -10,7 +12,12 @@ Run docker image locally:
 docker run streamlit-app
 ```
 
-Deployment to Google Cloud:
+Introspect docker image content with sh:
+```sh
+docker run -it streamlit-app sh
+```
+--------------------------------------
+### Deployment to Google Cloud
 
 One-time in Google Cloud Shell or locally (provided gcloud is installed):
 ```sh

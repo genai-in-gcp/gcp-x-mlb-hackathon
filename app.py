@@ -1,7 +1,7 @@
 import streamlit as st
 from streamlit_player import st_player
 from tiktok_uploader import tiktok
-from tiktok_uploader.Config import Config
+# from tiktok_uploader.Config import Config
 
 # _ = Config.load("./app/config.txt")
 
